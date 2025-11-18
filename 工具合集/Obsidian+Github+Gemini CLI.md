@@ -39,5 +39,5 @@ assets/${noteFileName}/${generatedAttachmentFileName}
 
 ![](assets/Obsidian+Github+Gemini%20CLI/file-20251118155133565.png)
 
-### Obsidian与Gemini CLIlian'yong
+### Obsidian与Gemini CLI联用
 

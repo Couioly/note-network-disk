@@ -41,3 +41,7 @@ assets/${noteFileName}/${generatedAttachmentFileName}
 
 ### Obsidian与Gemini CLI联用
 
+1）在安装Gemini CLI之前确保已安装Node.js，下面分别为两个网站的官方网址；
+
+[Node.js — 在任何地方运行 JavaScript](https://nodejs.org/zh-cn)   |   [Build, debug & deploy with AI | Gemini CLI](https://geminicli.com/)
+

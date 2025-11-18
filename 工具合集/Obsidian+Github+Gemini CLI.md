@@ -45,3 +45,17 @@ assets/${noteFileName}/${generatedAttachmentFileName}
 
 [Node.js — 在任何地方运行 JavaScript](https://nodejs.org/zh-cn)   |   [Build, debug & deploy with AI | Gemini CLI](https://geminicli.com/)
 
+![](assets/Obsidian+Github+Gemini%20CLI/file-20251118160540172.png)
+
+![](assets/Obsidian+Github+Gemini%20CLI/file-20251118160554609.png)
+
+2）复制Gemini CLI官网的安装指令，指令如下：
+
+```bash
+npm install -g @google/gemini-cli
+```
+
+3）在Obsidian的笔记文件夹中打开终端，粘贴安装指令回车等待安装；
+
+![](assets/Obsidian+Github+Gemini%20CLI/file-20251118161546708.png)
+

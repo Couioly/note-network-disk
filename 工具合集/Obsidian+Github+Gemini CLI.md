@@ -59,3 +59,4 @@ npm install -g @google/gemini-cli
 
 ![](assets/Obsidian+Github+Gemini%20CLI/file-20251118161546708.png)
 
+4）安装成功后输入 `gemini` 启动Gemini CLI，选择 `Login with Google` 登录海外环境；

@@ -63,4 +63,8 @@ npm install -g @google/gemini-cli
 
 ![](assets/Obsidian+Github+Gemini%20CLI/file-20251118162813074.png)
 
-5）在登录验证身份后就可以使用G
+5）在登录验证身份后就可以使用Gemini CLI这款AI工具了，它可以直接在当前文件夹中操作文件。
+
+>Enhancing Export 导出插件
+>与下载`Custom Attachment Localtion` 的方式类似，安装启动后即可使用！
+

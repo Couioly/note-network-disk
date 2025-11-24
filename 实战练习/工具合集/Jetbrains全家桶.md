@@ -1,3 +1,7 @@
+---
+share_link: https://share.note.sx/raix5em5#9LCMDdh2eXFy2M9JGt5SfYran2owEFJRtujbWjbmSXI
+share_updated: 2025-11-21T21:27:12+08:00
+---
 ## ckey.run激活Jetbrains全家桶
 ---
 

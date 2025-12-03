@@ -271,3 +271,29 @@ git commit -m "fix: 同时修复 README.md 的命令错误和 main.py 的参数�
 git push origin main
 ```
 
+## 恢复先前提交版本
+
+>[!Error] 注意
+>该方法不保留后续提交
+
+1）进入本地克隆项目文件夹，命令行输入下面指令查看需要恢复的提交记录ID(7位)：
+
+```git
+git log --oneline
+```
+
+>[!warning] 提示
+>当提交记录过多时将自动进入分页模式，此时若要退出只需输入`q`
+
+2）执行下面命令恢复本地项目；
+
+```git
+git reset --hard 提交ID
+```
+
+3）此时只是恢复了本地的提交记录，若要同步远程恢复，则还需要执行下面命令：
+
+```git
+git push -f origin 当前分支
+```
+

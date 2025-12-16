@@ -26,5 +26,43 @@ for(;i<=10;i++) {
 System.out.println(i +""+ j);
 ```
 
+8. 下列代码的运行结果是 `c`.
 
+```java
+Boolean b1 = new Boolean(true);  
+Boolean b2 = new Boolean(true);  
+Object obj1 = (Object)b1;  
+Object obj2 = (Object)b2;  
+if (obj1 == obj2)  
+    if (obj1.equals(obj2))  
+        System.out.println("a");  
+    else  
+        System.out.println("b");  
+else   
+if (obj1.equals(obj2))  
+        System.out.println("c");  
+    else  
+        System.out.println("d");
+```
 
+>[!warning] 注意
+>这道题通常考察的是if匹配，会将代码调整成以下方式：
+>```java
+>Boolean b1 = new Boolean(true);  
+>Boolean b2 = new Boolean(true);  
+>Object obj1 = (Object)b1;  
+>Object obj2 = (Object)b2;  
+>if (obj1 == obj2)  
+>if (obj1.equals(obj2))  
+>    System.out.println("a");  
+>else  
+  >  System.out.println("b");  
+>else  
+>if (obj1.equals(obj2))  
+>    System.out.println("c");  
+>else  
+>    System.out.println("d");
+>```
+
+9. 在Java中 `javac` 用于编译源文件(.java)，而 `java` 用于执行编译后的字节码文件(.class)。
+10. Java类中的属性可以是**简单变量**，也可以是一个**对象**。

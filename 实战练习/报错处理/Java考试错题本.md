@@ -67,3 +67,5 @@ if (obj1.equals(obj2))
 9. 在Java中 `javac` 用于编译源文件(.java)，而 `java` 用于执行编译后的字节码文件(.class)。
 10. Java类中的属性可以是**简单变量**，也可以是一个**对象**。
 11. 安装好JDK后，在它的bin目录下有许多exe可执行文件，其中`java.exe`命令的作用是**Java启动器**。
+12. 在 Java 体系中，**JVM（Java 虚拟机）**、**JRE（Java 运行环境）**、**JDK（Java 开发工具包）** 是层层包含、各司其职的关系，核心逻辑是：`JVM < JRE < JDK`（JDK 包含 JRE，JRE 包含 JVM）。
+13. 

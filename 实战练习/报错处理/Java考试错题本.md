@@ -89,4 +89,14 @@ if (obj1.equals(obj2))
 18. JDK中与输入输出相关的包和类都集中存放在 `java.io` 包中。
 19. Java程序运行的五个步骤：**编辑**、**编译**、加载、验证和**运行**。
 
-bu'q
+20. 字符数组与字符串之间的相互转化：
+
+```java
+// 字符数组转
+String char[] ca = {'a','b','c'}; 
+String s = new String(ca); 
+// String转字符数组 
+char[] ca = s.toCharArray();
+```
+
+21. `String int capacity()` String类的该方法用于

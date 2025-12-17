@@ -99,4 +99,10 @@ String s = new String(ca);
 char[] ca = s.toCharArray();
 ```
 
-21. `String int capacity()` String类的该方法用于
+21. `StringBuffer int capacity()` StringBuffer类的该方法用于容量(**字符串长度+16**)，例如下面示例的返回值是 `23`.
+
+```java
+StringBuffer bf = new StringBuffer("0123456");
+System.out.println(bf.capacity());
+```
+

@@ -113,4 +113,4 @@ System.out.println(bf.capacity());
 
 23. `String char charAt(int index)` 用于返回字符串中指定下标的字符。
 24. `String boolean metched(String regex)` 判断字符串是否匹配指定的正则表达式regex。
-25. 
+25. Java分为三个版本：SE（标准版）、EE（企业版）、ME（微型版）。

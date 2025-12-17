@@ -106,3 +106,8 @@ StringBuffer bf = new StringBuffer("0123456");
 System.out.println(bf.capacity());
 ```
 
+22. `substring(int beginIndex, int endIndex)` 参数介绍：
+
+    - `beginIndex`：起始下标（包含，从 0 开始）
+    - `endIndex`：结束下标（不包含）
+

@@ -86,4 +86,5 @@ if (obj1.equals(obj2))
 |char|Character|
 |boolean|Boolean|
 
-18. 
+18. JDK中与输入输出相关的包和类都集中存放在 `java.io` 包中。
+19. 

@@ -70,4 +70,20 @@ if (obj1.equals(obj2))
 12. 在 Java 体系中，**JVM（Java 虚拟机）**、**JRE（Java 运行环境）**、**JDK（Java 开发工具包）** 是层层包含、各司其职的关系，核心逻辑是：`JVM < JRE < JDK`（JDK 包含 JRE，JRE 包含 JVM）。
 13. 索引越界异常 `ArrayIndexOutOfBoundsException`.
 14. 除数为零时异常 `ArithmeticException`.
-15. 
+15. 当访问未初始化或为 `null` 的数组元素时，会抛出 `NullPointerException`**(空指针异常)**。
+16. 经过多次的上溯造型和下溯造型，当我们不能确定某个对象是不是某个类的对象时，可以使用运算符 `instanceof` 来判断。
+
+17. Java 基本数据类型与其对应的包装类：
+
+|基本数据类型|对应的包装类|
+|---|---|
+|byte|Byte|
+|short|Short|
+|int|Integer|
+|long|Long|
+|float|Float|
+|double|Double|
+|char|Character|
+|boolean|Boolean|
+
+18. 

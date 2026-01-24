@@ -73,3 +73,41 @@ wx.request({
 - **Localtunnel**：免注册，终端一行命令启动，`npx localtunnel --port 5000`。
 
 这种方式是小程序测试阶段的「最优解」，零成本、快上手，不用折腾云服务器的环境和备案，等你测试完成后，再把 Flask 部署到云服务器即可。
+
+## Ngrok配置（必选）
+
+### 1. 第一步：注册并获取 Auth Token
+
+- 去 Ngrok 官网（[https://ngrok.com/](https://ngrok.com/)）注册一个免费账号。
+- 登录后在 **Dashboard** 页面找到你的 `Auth Token`（认证令牌）。
+- 这个 Token 是用来让 Ngrok 识别你的身份，完成穿透服务的关键。
+
+### 2. 第二步：在本地配置 Auth Token
+
+在命令行里进入 Ngrok 所在的文件夹，执行以下命令：
+
+```bash
+ngrok config add-authtoken <你的Auth Token>
+```
+
+比如你的 Token 是 `123456789abcdef`，就输入：
+
+```bash
+ngrok config add-authtoken 123456789abcdef
+```
+
+执行后，Ngrok 会把 Token 保存到本地配置文件里，以后启动就不用每次都输了。
+
+### 3. 第三步：启动 Ngrok 进行内网穿透
+
+配置好 Token 后，再启动你的穿透命令，比如：
+
+```bash
+ngrok http 5000
+```
+
+这时候如果配置正确，命令行就会显示：
+
+- `Session Status` 变成 `online`
+- 出现 `Forwarding` 行，显示公网域名（如 `https://xxxx-xxxx-xxxx.ngrok.io -> http://localhost:5000`）
+- 你就可以用这个 HTTPS 公网域名来访问本地的 Flask 服务了

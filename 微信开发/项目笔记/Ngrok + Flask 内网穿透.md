@@ -82,6 +82,8 @@ wx.request({
 - 登录后在 **Dashboard** 页面找到你的 `Auth Token`（认证令牌）。
 - 这个 Token 是用来让 Ngrok 识别你的身份，完成穿透服务的关键。
 
+![](./images/file-20260124091408675.png)
+
 ### 2. 第二步：在本地配置 Auth Token
 
 在命令行里进入 Ngrok 所在的文件夹，执行以下命令：
@@ -105,6 +107,8 @@ ngrok config add-authtoken 123456789abcdef
 ```bash
 ngrok http 5000
 ```
+
+![](./images/file-20260124091536920.png)
 
 这时候如果配置正确，命令行就会显示：
 

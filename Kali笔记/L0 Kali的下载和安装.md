@@ -6,4 +6,21 @@
 >1. 本次Kali安装包为Kali2025.4版本(当前最新版)
 >2. 网络采用家庭电信宽带
 >3. 实体机为Windows11家庭版
->4. VMware虚拟机为
+>4. VMware虚拟机为17版本
+
+## VMware安装
+
+**VMware官网：[VMware by Broadcom - Cloud Computing for the Enterprise](https://www.vmware.com/)**
+
+![](./images/file-20260206155305258.png)
+
+## Kali下载
+
+1. 进入官网后点击 `Downloads` 进入下载页面，选择虚拟机版本进行下载；
+
+![](./images/file-20260206155903834.png)
+
+2. 选择安装 `VMware` 版本，点击下载
+
+![](./images/file-20260206160100156.png)
+

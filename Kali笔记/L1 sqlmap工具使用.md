@@ -52,6 +52,6 @@ sqlmap -u 测试网址 -D 数据库名 --tables
 4. 测试指定数据表中的数据
 
 ```bash
-sqlmap -u 测试网址 -D 数据库名 -T 数据表名 --dump
+sqlmap -u 测试网址 -D 数据库名 -T 数据表名 [-C 字段名1,字段名2,...] --dump
 ```
 

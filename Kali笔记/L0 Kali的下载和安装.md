@@ -1,6 +1,6 @@
 
 **Kali下载官方地址：[Kali Linux | Penetration Testing and Ethical Hacking Linux Distribution](https://www.kali.org/)**
-![](./images/file-20260206152726742.png)
+![](./images/file-20260207104107117.png)
 
 >[!info]  当前环境
 >1. 本次Kali安装包为Kali2025.4版本(当前最新版)
@@ -12,29 +12,29 @@
 
 **VMware官网：[VMware by Broadcom - Cloud Computing for the Enterprise](https://www.vmware.com/)**
 
-![](./images/file-20260206155305258.png)
+![](./images/file-20260207104107117%201.png)
 
 ## Kali下载
 
 1. 进入官网后点击 `Downloads` 进入下载页面，选择虚拟机版本进行下载；
 
-![](./images/file-20260206155903834.png)
+![](./images/file-20260207104107118.png)
 
 2. 选择安装 `VMware` 版本，点击下载；
 
-![](./images/file-20260206160100156.png)
+![](./images/file-20260207104107119.png)
 
 3. 等待压缩文件下载完成后对该文件进行解压；
 
-![](./images/file-20260206161713128.png)
+![](./images/file-20260207104107133.png)
 
 4. 解压完成后在解压后的文件中找到以 `.vmx` 结尾的文件，双击运行它；
 
-![](./images/file-20260206162146918.png)
+![](./images/file-20260207104107134.png)
 
 5. 成功运行后的页面如下所示。
 
-![](./images/file-20260206162339410.png)
+![](./images/file-20260207104107135.png)
 
 ## Kali配置
 
@@ -46,22 +46,22 @@
 - 将兼容性拉满(选择最顶部的版本)
 - 更改此虚拟机
 
-![](./images/file-20260206163503154.png)
+![](./images/file-20260207104107135%201.png)
 
 2. 检查网络是否可以正常上网，打开kali自带的火狐浏览器，随意输入一个网站查看是否可以正常访问；
 
-![](./images/file-20260206164543773.png)
+![](./images/file-20260207104107138.png)
 
 3. 更新源，终端输入 `sudo apt update`；
 
-![](./images/file-20260206165145896.png)
+![](./images/file-20260207104107140.png)
 
 >[!error] 更新失败情况
 >若采用校园网进行更新，则校园网可能会对其进行限制，导致更新失败，所以建议更换为手机热点再进行尝试。新手不建议进行**换源**操作。
 
 4. 成功更新后的页面
 
-![](./images/file-20260206165810880.png)
+![](./images/file-20260207104107141.png)
 
 ## Kali汉化
 
@@ -73,11 +73,11 @@ sudo dpkg-reconfigure locales
 
 2. 然后通过方向键进行语言选择（这里选择汉语`zh_CN`），指向目标内容后通过`空格键`进行选中，然后`Tab键`选中`ok键`回车；
 
-![](./images/file-20260206171215806.png)
+![](./images/file-20260207104107141%201.png)
 
 3. 再次选中目标（这里选择汉语`zh_CN`），然后`Tab键`选中`ok键`回车；
 
-![](./images/file-20260206171435561.png)
+![](./images/file-20260207104107142.png)
 
 4. 最后对kali进行重启，可以在终端输入下列内容：
 
@@ -87,7 +87,7 @@ sudo reboot
 
 5. 重启后它会弹出文件夹语言更新的询问窗口，在该窗口中勾选 `不要在询问我`，然后选择 `保留旧的名称` 选项，否则后续可能遇到问题。至此，汉化完成！
 
-![](./images/file-20260206171837496.png)
+![](./images/file-20260207104107155.png)
 
 ## Kali中文输入
 
@@ -97,16 +97,16 @@ sudo reboot
 sudo apt install fcitx fcitx-googlepinyin
 ```
 
-![](./images/file-20260206172700804.png)
+![](./images/file-20260207104107156.png)
 
 2. 安装成功后终端输入 `sudo reboot` 进行重启；
 
 3. 点击左上角kali图标，打开搜索页面，输入 `fcitx` ，选择 `fcitx配置` 选项；
 
-![](./images/file-20260206173132177.png)
+![](./images/file-20260207104107158.png)
 
 4. 在输入法配置窗口中选中 `Google拼音` 选项，然后点击下面的向上箭头，让它移动至顶端；
 
-![](./images/file-20260206173835529.png)
+![](./images/file-20260207104107160.png)
 
 5. 至此，中文输入法配置成功，点击 `Ctrl + 空格` 切换中/英文输入法。

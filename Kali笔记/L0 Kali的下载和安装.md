@@ -1,3 +1,7 @@
+---
+share_link: https://share.note.sx/dku41n89#bxcJA0VnepH7WBWep6nr6npzSjzpDtM1WF6xGeOLDkc
+share_updated: 2026-02-07T17:46:49+08:00
+---
 
 **Kali下载官方地址：[Kali Linux | Penetration Testing and Ethical Hacking Linux Distribution](https://www.kali.org/)**
 ![](./images/file-20260207104107117.png)

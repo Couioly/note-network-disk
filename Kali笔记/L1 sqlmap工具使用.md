@@ -1,3 +1,7 @@
+---
+share_link: https://share.note.sx/90w1xflj#Aiy+VTyOY9y4f9grKnQjt+vsQ5Zf2PstxHLrkMe491k
+share_updated: 2026-02-07T17:43:25+08:00
+---
 
 >[!info] sqlmap介绍
 sqlmap 是一款开源、自动化的SQL注入漏洞检测与利用工具，主要用于帮助安全测试人员、渗透测试工程师发现并验证Web应用程序中存在的SQL注入漏洞，进而评估漏洞可能带来的安全风险（如数据泄露、服务器控制权被夺取等）。它基于Python开发，支持多种数据库类型和注入技术，是Web安全领域最常用的工具之一。

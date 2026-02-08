@@ -16,6 +16,8 @@ sqlmap 是一款开源、自动化的SQL注入漏洞检测与利用工具，主�
 
 >[!warning] 目标网站
 >（B站UP主ID：**2005814455**）http://a5fa4ee523e3.target.yijinglab.com/
+>
+><font color=red>        不建议使用，建议自己搭建，后续我将使用皮卡丘靶场</font>
 
 1. 测试是否存在漏洞
 
@@ -53,9 +55,15 @@ sqlmap -u 测试网址 -D 数据库名 --tables
 
 ![](./images/file-20260207161950889.png)
 
-4. 测试指定数据表中的数据
+4. 测试指定数据表中的数据（此处我使用的自己部署的pikachu靶场）
 
 ```bash
 sqlmap -u 测试网址 -D 数据库名 -T 数据表名 [-C 字段名1,字段名2,...] --dump
 ```
+
+![](./images/file-20260208101030974.png)
+
+(此处为最终获取到的结果)
+
+![](./images/file-20260208100930513.png)
 

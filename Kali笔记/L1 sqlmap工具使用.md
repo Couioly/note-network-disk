@@ -67,3 +67,9 @@ sqlmap -u 测试网址 -D 数据库名 -T 数据表名 [-C 字段名1,字段名2
 
 ![](./images/file-20260208100930513.png)
 
+>[!warning] 扫描缓存
+>sqlmap扫描重复检测出已修复的漏洞，大概率是**缓存/扫描配置残留或修复未彻底**导致的。
+>1. 扫描命令后直接添加 `--flush-session` 可以强制清空当前目标的会话缓存，且本次扫描不缓存
+>2. Linux/Kali(彻底删除缓存目录)`/.local/share/sqlmap/`或`/usr/share/sqlmap/data/`
+>3. Kali中可以使用命令一键删除：`rm -rf ~/.local/share/sqlmap/*`
+

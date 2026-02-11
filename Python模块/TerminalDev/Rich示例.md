@@ -126,7 +126,7 @@ from 项目名.console import console
 >[!warning] 警告
 >设置颜色系统时要小心，如果你设置的颜色系统比终端支持的更高，文字可能会无法阅读。
 
-`console.print()` 主要参数：
+5. `console.print()` 主要参数：
 
 **1. 样式相关**
 
@@ -175,3 +175,30 @@ console.print("[bold red on yellow]文本[/]",justify="center")
 
 ![](./images/file-20260211140355003.png)
 
+6. `console.log()` 关键参数：
+
+```python
+# 日志级别（颜色不同）
+log("msg", level="info")      # 默认
+log("msg", level="warning")   # 黄
+log("msg", level="error")     # 红
+log("msg", level="success")   # 绿
+
+# 跟踪选项
+log_locals=True      # 显示局部变量（你已知）
+log_locals=False     # 默认，不显示
+
+# 调用位置
+_locals={}           # 手动指定局部变量
+_show_locals=False   # 强制隐藏局部变量
+_stack_offset=1      # 调整调用栈深度
+
+# 样式控制
+style="bold"         # 应用样式
+```
+
+示例：
+
+```python
+
+```

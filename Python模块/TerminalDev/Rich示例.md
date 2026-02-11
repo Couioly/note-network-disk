@@ -7,14 +7,18 @@ pretty.install()
 ["Rich and pretty", True]
 ```
 
-![](./images/file-20260211105125322.png)
 
-你也可以用这个功能来尝试丰富的可渲染资源。举个例子：
+利用 `rich` 库的 `Panel` 组件创建一个带边框的面板，并输出醒目的文本，代码如下：
 
 ```python
-from rich.panel import Panel
-Panel.fit("[bold yellow]Hi, I'm a Panel", border_style="red")
+# 导入rich库的Panel组件和增强版print函数  
+from rich.panel import Panel  
+from rich import print  
+  
+# 创建并打印带样式的面板  
+# Panel.fit() 会自适应内容宽度，border_style设置边框样式，文本使用加粗黄色  
+print(Panel.fit("[bold yellow]Hi, I'm a Panel[/bold yellow]", border_style="red"))
 ```
 
-![](./images/file-20260211105208410.png)
+
 

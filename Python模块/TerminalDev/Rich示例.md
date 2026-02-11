@@ -177,28 +177,35 @@ console.print("[bold red on yellow]文本[/]",justify="center")
 
 6. `console.log()` 关键参数：
 
-```python
-# 日志级别（颜色不同）
-log("msg", level="info")      # 默认
-log("msg", level="warning")   # 黄
-log("msg", level="error")     # 红
-log("msg", level="success")   # 绿
-
-# 跟踪选项
-log_locals=True      # 显示局部变量（你已知）
-log_locals=False     # 默认，不显示
-
-# 调用位置
-_locals={}           # 手动指定局部变量
-_show_locals=False   # 强制隐藏局部变量
-_stack_offset=1      # 调整调用栈深度
-
-# 样式控制
-style="bold"         # 应用样式
-```
+	1. `*objects` - 要打印的内容
+	2. `sep` - 分隔符，默认空格
+	3. `end` - 结尾符，默认换行
+	4. `style` - 样式
+	5. `justify` - 对齐方式
+	6. `emoji` - 是否启用表情符号
+	7. `markup` - 是否启用标记语法
+	8. `highlight` - 是否启用自动高亮
+	9. `log_locals` - 是否打印局部变量
+	10. `_stack_offset` - 调用栈偏移量
 
 示例：
 
 ```python
-
+def func(msg="未查询到任何消息", flag=False):  
+    a,b = 10,20  
+    console.log("[blue underline]Looks like a link",log_locals=flag)  
+    time.sleep(1)  
+    console.log(f"[bold red]ERROR消息[/]: {msg}")  
+    time.sleep(1)  
+    console.log(f"[yellow]WARNING消息[/]: {msg}")  
+    time.sleep(1)  
+  
+print("log_locals参数值为False效果展示")  
+func()  
+  
+print("log_locals参数值为True效果展示")  
+func(flag=True)
 ```
+
+![](./images/file-20260211143110202.png)
+

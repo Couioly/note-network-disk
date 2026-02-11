@@ -209,3 +209,42 @@ func(flag=True)
 
 ![](./images/file-20260211143110202.png)
 
+7. 该`print_json`方法可以很好地打印（格式化和样式）包含 JSON 的字符串。这里有一个简短的例子：
+
+```python
+console.print_json('[false, true, null, "foo"]')
+```
+
+你也可以通过记录一个对象来记录json:
+
+```python
+from rich.json import JSON
+console.log(JSON('["foo", "bar"]'))
+```
+
+由于打印 JSON 是常见要求，你可以从主命名空间导入：`print_json`
+
+```python
+from rich import print_json
+```
+
+你也可以通过命令行漂亮地打印JSON，具体作如下：
+
+```bash
+python -m rich.json cats.json
+```
+
+示例：
+
+```python
+with open("灾难.json","r",encoding="utf-8") as f:  
+    data = f.read()  
+  
+    # 方法一：直接调用print_json方法  
+    console.print_json(data)  
+  
+    # 方法二：实用JSON转化再调用log方法  
+    from rich.json import JSON  
+    console.log(JSON(data))
+```
+

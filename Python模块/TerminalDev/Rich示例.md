@@ -20,5 +20,42 @@ from rich import print
 print(Panel.fit("[bold yellow]Hi, I'm a Panel[/bold yellow]", border_style="red"))
 ```
 
+![](./images/file-20260211113634572.png)
 
+设置边框和文字颜色及样式效果：
+
+```python
+from rich.panel import Panel  
+from rich import print  
+from rich import box  
+from rich.text import Text  
+  
+# 1. 基础边框样式（已验证能正常运行）  
+print(Panel("圆角边框", border_style="green", expand=False, box=box.ROUNDED))  
+print(Panel("粗边框", border_style="blue", expand=False, box=box.HEAVY))  
+print(Panel("ASCII边框", border_style="yellow", expand=False, box=box.ASCII))  
+  
+# 文本+底色（仅文本）  
+text = Text("渐变文本", style="bold red on yellow")  
+panel = Panel(text, border_style="bright_cyan",expand=False)  
+print(panel)  
+  
+# 模拟文字渐变：每个字符不同颜色  
+text = Text()  
+colors = ["red", "yellow", "green", "cyan", "blue"]  
+for i, color in enumerate(colors):  
+    text.append(f"渐{i}", style=color)  
+print(Panel(text, border_style="white", expand=False))  
+  
+# 模拟边框渐变（多个Panel拼接）  
+from rich.columns import Columns  
+panels = [  
+    Panel("左", border_style="red"),  
+    Panel("中", border_style="yellow"),  
+    Panel("右", border_style="green")  
+]  
+print(Columns(panels))
+```
+
+![](./images/file-20260211113534769.png)
 

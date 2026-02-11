@@ -1,4 +1,6 @@
 
+### 简单入门
+
 1. 可以在 REPL 中安装 Rich，这样 Python 数据结构会自动漂亮地打印并标注语法。具体做法如下：
 
 ```python
@@ -90,4 +92,37 @@ inspect(color, methods=True)
 
 ![](./images/file-20260211132234945.png)
 
-5. 
+### Console API
+
+1. 在项目添加一个名为 `console.py` 的文件：
+
+```python
+from rich.console import Console
+console = Console()
+```
+
+2. 然后可以在项目的任何位置导入控制台：
+
+```python
+from 项目名.console import console
+```
+
+3. 控制台会在渲染时自动检测到一些属性。
+
+- `size` 是终端当前的尺寸（如果你调整窗口大小，尺寸可能会改变）。
+- `encoding` 是默认编码（通常为“UTF-8”）。
+- `is_terminal` 是一个布尔值，用于指示控制台实例是否正在写入终端。
+- `color_system` 是包含控制台颜色系统的字符串（见下文）。
+
+4. 有几个“标准”用于将颜色写入终端，但并非全部都被普遍支持。Rich 会自动检测合适的颜色系统，或者你可以通过给[构造器提供一个值](https://rich.readthedocs.io/en/stable/reference/console.html#rich.console.Console "rich.console.Console")来手动设置。`color_system`你可以设置为以下其中之一：
+
+- `None`完全禁用颜色。
+- `"auto"`会自动检测颜色系统。
+- `"standard"`可显示8种颜色，包含正常和明亮变化，共16种颜色。
+- `"256"`可以显示“标准”中的16种颜色，加上固定的240色调色板。
+- `"truecolor"`可以显示1670万种颜色，这很可能就是你显示器能显示的所有颜色。
+- `"windows"`在旧版Windows终端中可以显示8种颜色。新的Windows终端可以显示“真彩色”。
+
+>[!warning] 警告
+>设置颜色系统时要小心，如果你设置的颜色系统比终端支持的更高，文字可能会无法阅读。
+

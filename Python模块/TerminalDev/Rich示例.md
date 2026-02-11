@@ -126,3 +126,52 @@ from 项目名.console import console
 >[!warning] 警告
 >设置颜色系统时要小心，如果你设置的颜色系统比终端支持的更高，文字可能会无法阅读。
 
+`console.print()` 主要参数：
+
+**1. 样式相关**
+
+```python
+# 基础
+style="bold italic"           # 粗体+斜体
+style="underline2"           # 双下划线
+style="strike"              # 删除线
+style="reverse"             # 反色（前景/背景互换）
+style="blink"               # 闪烁
+
+# 颜色
+style="red on white"        # 红字白底
+style="#ff00ff on #00ff00" # RGB颜色
+
+# 渐变（仅限前景色）
+style="gradient(red,blue)"  # 红到蓝渐变
+```
+
+**2. 标记语法（Markup）**
+
+```python
+"[bold red on yellow]文本[/]"
+"[link https://example.com]可点击链接[/]"
+```
+
+**3. 其他重要参数**
+
+```python
+justify="left/center/right"  # 对齐方式
+overflow="fold/ellipsis"     # 超长文本处理
+emoji=False                  # 禁用表情符号
+```
+
+示例：
+
+```python
+console.print([1,2,3])  
+console.print(locals())  
+console.print("[blue underline]Looks like a link")  
+console.print("FOO",style="blink")  
+console.print("[link https://example.com]可点击链接[/]")  
+console.print("[bold red on yellow]文本[/]")  
+console.print("[bold red on yellow]文本[/]",justify="center")
+```
+
+![](./images/file-20260211140355003.png)
+

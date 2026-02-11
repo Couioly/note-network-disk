@@ -2,11 +2,12 @@
 可以在 REPL 中安装 Rich，这样 Python 数据结构会自动漂亮地打印并标注语法。具体做法如下：
 
 ```python
-from rich import pretty
-pretty.install()
-["Rich and pretty", True]
+from rich import print as rprint  
+print({"原生print":True})  
+rprint({"现在print":True})
 ```
 
+![](./images/file-20260211114405172.png)
 
 利用 `rich` 库的 `Panel` 组件创建一个带边框的面板，并输出醒目的文本，代码如下：
 

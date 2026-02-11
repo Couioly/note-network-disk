@@ -1,5 +1,5 @@
 
-可以在 REPL 中安装 Rich，这样 Python 数据结构会自动漂亮地打印并标注语法。具体做法如下：
+1. 可以在 REPL 中安装 Rich，这样 Python 数据结构会自动漂亮地打印并标注语法。具体做法如下：
 
 ```python
 from rich import print as rprint  
@@ -9,7 +9,7 @@ rprint({"现在print":True})
 
 ![](./images/file-20260211114405172.png)
 
-利用 `rich` 库的 `Panel` 组件创建一个带边框的面板，并输出醒目的文本，代码如下：
+2. 利用 `rich` 库的 `Panel` 组件创建一个带边框的面板，并输出醒目的文本，代码如下：
 
 ```python
 # 导入rich库的Panel组件和增强版print函数  
@@ -23,7 +23,7 @@ print(Panel.fit("[bold yellow]Hi, I'm a Panel[/bold yellow]", border_style="red"
 
 ![](./images/file-20260211113634572.png)
 
-设置边框和文字颜色及样式效果：
+3. 设置边框和文字颜色及样式效果：
 
 ```python
 from rich.panel import Panel  
@@ -60,3 +60,34 @@ print(Columns(panels))
 
 ![](./images/file-20260211113534769.png)
 
+4. `inspect()` 功能：**详细查看对象的属性和方法**。你的代码效果：
+
+```python
+from rich import inspect  
+  
+# 先创建一个对象，此处以Color对象为例  
+from rich.color import Color  
+color = Color.parse("red")  
+  
+# inspect(对象名[, methods=True/False])  
+inspect(color, methods=True)
+```
+
+- `inspect(color, methods=True)`：显示 Color 对象所有属性和方法
+- `methods=True` 表示**同时显示方法**（默认只显示属性）
+
+输出会包含以下内容，清晰列出对象内部结构：
+
+```text
+╭─────────────────────────────────────────────────────────────╮
+│ <rich.color.Color>                                          │
+╰─────────────────────────────────────────────────────────────╯
+┌─────────────┬───────────────────────────────────────────────┐
+│ attributes  │ color, ...                                    │
+│ methods     │ __init__, parse, ...                          │
+└─────────────┴───────────────────────────────────────────────┘
+```
+
+![](./images/file-20260211132234945.png)
+
+5. 

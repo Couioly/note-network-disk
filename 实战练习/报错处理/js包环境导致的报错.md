@@ -97,3 +97,7 @@ result = subprocess.run(
 3. **避坑核心**：局部安装依赖比全局安装更稳定，能彻底解决不同编辑器 / 终端的环境不一致问题。
 
 按这个步骤操作后，VSCode 中就不会再报 `Cannot find module 'base64-js'` 的错误了。
+
+**问题截图**
+![](./images/file-20260226095139287.png)
+

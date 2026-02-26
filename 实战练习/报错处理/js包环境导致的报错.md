@@ -1,5 +1,6 @@
+## 导包引起的错误
 
-**问题截图**
+**报错截图**
 
 ![](./images/file-20260226091623984.png)
 
@@ -98,6 +99,148 @@ result = subprocess.run(
 
 按这个步骤操作后，VSCode 中就不会再报 `Cannot find module 'base64-js'` 的错误了。
 
-**问题截图**
+## 编码引起的错误
+
+**报错截图**
+
 ![](./images/file-20260226095139287.png)
 
+你现在遇到的是**两个叠加的问题**：首先是 `subprocess` 读取 Node.js 输出时的**编码解码错误**（UnicodeDecodeError），导致 execjs 拿不到 JS 执行结果，进而返回 `None` 触发了 `replace` 方法的 AttributeError。核心原因是 Windows 系统默认编码（GBK）和 Node.js 输出的 UTF-8 编码不兼容，而非代码逻辑问题。
+
+### 问题拆解
+
+1. **根因：编码不匹配**
+
+    execjs 底层调用 subprocess 执行 Node.js 时，默认用 Windows 系统编码（GBK）读取输出，但 Node.js 输出的是 UTF-8 编码的内容，包含 GBK 无法解码的字符（比如 0xaf），导致读取失败，最终返回 `None`。
+
+2. **表象：AttributeError**
+
+    因为编码错误导致 JS 执行结果读取失败，execjs 拿到 `None`，后续调用 `replace` 方法就报错了。
+
+### 解决方案（彻底修复编码 + execjs 运行时问题）
+
+核心问题还是**subprocess 调用时未指定 UTF-8 编码**，导致读取 Node.js 输出时出现 GBK 解码错误。我帮你定位到需要修改的位置，按下面的步骤改就能彻底解决编码问题：
+
+#### 第一步：找到需要修改的 2 个核心函数
+
+你的源码里有两个执行 Node.js 命令的函数：`_exec_with_pipe` 和 `_exec_with_tempfile`，这两个函数里的 `Popen` 调用都没指定编码，是报错的根源。
+
+#### 第二步：逐处修改（标注行号 + 修改内容）
+
+##### 1. 修改 `_exec_with_pipe` 函数（源码第 92-103 行）
+
+**原代码**：
+
+```python
+p = Popen(cmd, stdin=PIPE, stdout=PIPE, stderr=PIPE, cwd=self._cwd, universal_newlines=True)
+input = self._compile(source)
+if six.PY2:
+    input = input.encode(sys.getfilesystemencoding())
+stdoutdata, stderrdata = p.communicate(input=input)
+ret = p.wait()
+```
+
+**修改后**（添加 `encoding='utf-8'` + 调整输入编码）：
+
+```python
+# 关键：添加 encoding='utf-8'，去掉 universal_newlines（新版Python用encoding替代）
+p = Popen(
+    cmd, 
+    stdin=PIPE, 
+    stdout=PIPE, 
+    stderr=PIPE, 
+    cwd=self._cwd, 
+    encoding='utf-8',  # 强制UTF-8编码
+    errors='ignore'    # 忽略偶发的解码错误
+)
+input = self._compile(source)
+stdoutdata, stderrdata = p.communicate(input=input)
+ret = p.wait()
+```
+
+##### 2. 修改 `_exec_with_tempfile` 函数（源码第 118-129 行）
+
+**原代码**：
+
+```python
+p = Popen(cmd, stdout=PIPE, stderr=PIPE, cwd=self._cwd, universal_newlines=True)
+stdoutdata, stderrdata = p.communicate()
+ret = p.wait()
+```
+
+**修改后**（同样添加编码参数）：
+
+```python
+# 关键：添加 encoding='utf-8' 和 errors='ignore'
+p = Popen(
+    cmd, 
+    stdout=PIPE, 
+    stderr=PIPE, 
+    cwd=self._cwd, 
+    encoding='utf-8',  # 强制UTF-8读取输出
+    errors='ignore'    # 容错：忽略无法解码的字符
+)
+stdoutdata, stderrdata = p.communicate()
+ret = p.wait()
+```
+
+##### 3. （可选）补充：修复 `_extract_result` 函数的空值问题
+
+源码第 164 行的 `_extract_result` 函数在 `output` 为 `None` 时会报错，我们加个兜底判断：
+
+**原代码**：
+
+```python
+def _extract_result(self, output):
+    output = output.replace("\r\n", "\n").replace("\r", "\n")
+    output_last_line = output.split("\n")[-2]
+    ret = json.loads(output_last_line)
+```
+
+**修改后**：
+
+```python
+def _extract_result(self, output):
+    # 新增：兜底判断 output 不为空
+    if not output:
+        raise ProgramError("JS执行结果为空，可能是编码错误或Node.js执行失败")
+    output = output.replace("\r\n", "\n").replace("\r", "\n")
+    output_last_line = output.split("\n")[-2]
+    ret = json.loads(output_last_line)
+```
+
+#### 第三步：修改后验证
+
+1. 保存 `_external_runtime.py` 文件；
+2. 重启 VSCode 终端（确保修改生效）；
+3. 重新运行 `python main.py`，此时：
+    
+    - 不会再报 `UnicodeDecodeError`（编码问题解决）；
+    - 不会再报 `AttributeError: 'NoneType' object has no attribute 'replace'`（因为输出能正常读取，`output` 不再是 `None`）。
+    
+
+#### 关键说明
+
+1. **为什么要改这两处？**
+    
+    - 你的源码中 `Popen` 只加了 `universal_newlines=True`（等价于 `text=True`），但未指定 `encoding`，Python 会用系统默认编码（Windows 是 GBK）读取 Node.js 输出，而 Node.js 输出是 UTF-8，所以解码失败；
+    - 手动添加 `encoding='utf-8'` 后，强制用 UTF-8 读取输出，完美匹配 Node.js 的编码，从根源解决解码错误。
+    
+2. **errors='ignore' 的作用？**
+    
+    偶尔 Node.js 输出中会有特殊字符，加这个参数可以忽略偶发的解码错误，避免程序直接崩溃（仅作为容错，核心还是靠 `encoding='utf-8'`）。
+
+#### 为什么 PyCharm 没报错？
+
+PyCharm 会自动给 subprocess 调用设置 UTF-8 编码（或终端默认编码是 UTF-8），而 VSCode 终端默认继承 Windows 系统的 GBK 编码，所以只有 VSCode 触发了这个编码错误。
+
+#### 总结
+
+1. **核心问题**：Windows 系统编码（GBK）与 Node.js 输出编码（UTF-8）不兼容，导致 execjs 读取结果失败返回 None；
+2. **关键修复**：
+- 方案 1（简单）：修改 execjs 的 `_external_runtime.py`，给 Popen 添加 `encoding='utf-8'`；
+- 方案 2（推荐）：放弃 execjs，直接用 subprocess 调用 Node.js，手动指定 UTF-8 编码；
+
+3. **验证方法**：修改后运行代码，若不再报 UnicodeDecodeError，且 `musics_data` 有值，说明修复成功。
+
+按这个修改后，你的代码就能在 VSCode 中和 PyCharm 一样正常运行了～

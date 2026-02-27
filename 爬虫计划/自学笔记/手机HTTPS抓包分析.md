@@ -108,3 +108,12 @@ adb shell  # 进入手机shell命令行（可执行手机端指令）
 adb pull /sdcard/capture.pcap 电脑保存路径  # 提取手机里的抓包日志到电脑
 ```
 
+## 给手机安装CA证书
+
+### Burp生成证书
+
+1.在Burp的代理设置中生成CA证书，操作: 代理 -> ProxySettings -> 导入/导出CA证书 -> DER格式的证书 -> 自定义下载位置, 下载到自定义目录中；
+
+![](./images/file-20260227114328844.png)
+
+2.

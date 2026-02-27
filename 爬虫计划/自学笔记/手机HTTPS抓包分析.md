@@ -11,3 +11,10 @@
 - 设置代理参数：主机名 -> 电脑IP（如 `192.168.1.12`）；端口 -> 监听器端口（如 `8899`）
 - 保存
 
+## 使用ADB连接手机
+
+**官方精简版**：[https://developer.android.com/studio/releases/platform-tools（下滑找到「Download SDK Platform-Tools for Windows」）](https://developer.android.com/studio/releases/platform-tools)
+
+>[!warning] 建议
+>下载安装后建议配置环境变量，便于后续使用
+

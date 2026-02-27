@@ -15,11 +15,12 @@
 
 ### ADB下载安装
 
-**官方精简版**：[platform-tools 官网下载地址）](https://developer.android.com/studio/releases/platform-tools)
+**官方精简版**：[platform-tools 官网下载地址](https://developer.android.com/studio/releases/platform-tools)
 
 ![](./images/file-20260227103635341.png)
 
 >[!warning] 建议
+>
 >下载安装后建议配置环境变量，便于后续使用
 
 ### **验证是否配置成功**
@@ -130,8 +131,10 @@ adb push ./xiaomi.cer /sdcard/download
 1.在手机设置中安装证书，操作：设置 -> 隐私与安全 -> 安全 -> 更多安全设置 -> 更多安全设置 -> 加密与凭据 -> 安装证书 -> CA证书 -> 任然安装 -> /sdcard/download/中找到证书点击 -> 提示: 已安装CA证书. 
 
 >[!warning] 注意
+>
 >此时安装的证书将自动被分配到用户凭据, 而非系统凭据, 若要正常抓取数据包必须将证书移动至系统凭据, 因此还需借助其他工具
 
 >[!info] 提示
+>
 >后续手机端还需要采用刷机模式刷入Magisk, 然后使用Magisk安装MoveCertificate, MoveCertificate会把用户凭据移动到系统凭据，但是安装Magisk需要解锁Bootloader, 我的小米设备未解锁Bootloader，所以在这儿无法继续向下学习了！
 

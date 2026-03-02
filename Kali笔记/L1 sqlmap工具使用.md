@@ -73,3 +73,20 @@ sqlmap -u 测试网址 -D 数据库名 -T 数据表名 [-C 字段名1,字段名2
 >2. Linux/Kali(彻底删除缓存目录)`/.local/share/sqlmap/`或`/usr/share/sqlmap/data/`
 >3. Kali中可以使用命令一键删除：`rm -rf ~/.local/share/sqlmap/*`
 
+**常错雷区**
+
+注意区分 `GET` 请求和 `POST` 请求，它们的请求方式不同，以我的pikachu靶场为例：
+- `./pikachu/vul/sqli/sqli_str.php`
+	请求方式：`GET`
+	请求参数：`name=...&submit=查询`
+	sqlmap扫描命令：`sqlmap -u "http://192.168.1.12:8888/pikachu/vul/sqli/sqli_str.php?name=zhangsan&submit=查询" --flush-session`
+
+- `./pikachu/vul/sqli/sqli_id.php`
+	请求方式：`POST`
+	请求参数：`id=...&submit=查询`
+	sqlmap扫描命令：`sqlmap -u "http://192.168.1.12:8888/pikachu/vul/sqli/sqli_id.php" --data "id=5&submit=查询" --flush-session`
+
+>[!warning] 提示
+>此处的 `192.168.1.12:8888` 为我本地的pikachu靶场地址，扫描时更换为自己的既可
+
+

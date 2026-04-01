@@ -16,7 +16,8 @@ ollama --version
 
 若显示ollama的版本信息如 `ollama version is 0.19.0`，则表示安装成功！
 
-## 安装 Models 大模型
+## 安装 Qwen3.5 大模型
+
 1. 点击 Models 进入大模型页面；
 
 ![](./images/file-20260401102657510.png)
@@ -32,4 +33,18 @@ ollama --version
 4. 首次下载会有一个下载过程，如图所示：
 
 ![](./images/file-20260401103626826.png)
+
+5. 安装成功后就可以在终端进行首轮测试了，如下所示：
+
+![](./images/file-20260401104416355.png)
+
+## 使用 Chatbox AI 进行测试
+
+1. 访问 [Chatbox AI 网页版](https://web.chatboxai.app/) ；
+
+![](./images/file-20260401104737999.png)
+
+2. 点击左下角 Setting 可以对网页进行汉化设置；
+
+![](./images/file-20260401104935000.png)
 

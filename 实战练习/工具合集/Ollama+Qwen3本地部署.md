@@ -50,7 +50,11 @@ ollama --version
 
 3. 在 Chatbox AI 中创建一个ollama提供的模型；
 
-![](./images/file-20260401105659867.png)
+![](./images/file-20260401111541603.png)
+
+>[!warning] 注意
+>- 模型 ID 必须与 Ollama 中拉取的模型名完全一致；
+>- API主机为 `127.0.0.1:11434/V1`
 
 3. 尝试使用ollama提供的模型进行对话，发现报错了，这是因为未配置环境变量导致的；
 
@@ -71,4 +75,8 @@ ollama --version
 ![](./images/file-20260401110626905.png)
 
 ![](./images/file-20260401110729556.png)
+
+6. 最后回到对话窗口，重新测试后就可以正常对话了。
+
+![](./images/file-20260401112043427.png)
 

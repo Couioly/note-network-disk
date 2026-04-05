@@ -17,3 +17,7 @@ irm https://claude.ai/install.ps1 | iex
 claude
 ```
 
+Anthropic对中国大陆地区的服务限制 -> 报错示例：
+
+![](./images/file-20260405093429194.png)
+

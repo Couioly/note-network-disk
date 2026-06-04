@@ -271,7 +271,7 @@ nmap -sV -p 135,5357,445,139 -A 192.168.0.11
 
 - 看到只剩 `RHOSTS` 需要设置了
 
-![image.png](https://note.youdao.com/yws/public/resource/32ab6a45f53f97e2c9ae5b3bda1713db/WEBRESOURCE6824f8e6755013322a045a3f9939b155?ynotemdtimestamp=1757325709790)
+![image.png|212](https://note.youdao.com/yws/public/resource/32ab6a45f53f97e2c9ae5b3bda1713db/WEBRESOURCE6824f8e6755013322a045a3f9939b155?ynotemdtimestamp=1757325709790)
 
 - `RHOSTS` 设置为目标地址
 
